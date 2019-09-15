@@ -1,4 +1,4 @@
-package leetcode.leetcode_2;
+package leetcode.lc_2;
 
 /**
  * Author   : soldieryu.dev@gmail.com
