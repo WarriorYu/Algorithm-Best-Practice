@@ -15,6 +15,10 @@ public class HashMapDemo {
         map.put("西瓜", 3);
         map.put("菠萝", 4);
 
+        int[] tt = new int[]{};
+        tt[0] = 1;
+        tt[1] = 2;
+
 
 
         Set<Map.Entry<String, Integer>> entrySet = map.entrySet();
