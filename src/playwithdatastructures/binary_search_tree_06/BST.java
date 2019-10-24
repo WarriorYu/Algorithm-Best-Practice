@@ -1,8 +1,7 @@
 package playwithdatastructures.binary_search_tree_06;
 
 
-import java.util.LinkedList;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Author   : soldieryu.dev@gmail.com
@@ -180,6 +179,166 @@ public class BST<E extends Comparable<E>> {
         System.out.println(node.e);
     }
 
+    // 二分搜索树的层序遍历
+    private void levelOrder() {
+        if (root == null) {
+            return;
+        }
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            Node node = q.remove();
+            System.out.println(node.e);
+            if (node.left != null) {
+                q.add(node.left);
+            }
+            if (node.right != null) {
+                q.add(node.right);
+            }
+        }
+    }
+
+    // 寻找二分搜索树的最小元素
+    private E minimum() {
+        if (size == 0) {
+            throw new IllegalArgumentException("BST is empty");
+        }
+        Node minNode = minimum(root);
+        return minNode.e;
+
+    }
+
+    // 返回以node为根的二分搜索树的最小值所在的节点
+    private Node minimum(Node node) {
+        //最小值在左子树，当最小叶子节点的左子树为null，当且叶子节点就是最小值所在节点
+        if (node.left == null) {
+            return node;
+        }
+        return minimum(node.left);
+    }
+
+    // 从二分搜索树中删除最小值所在节点, 返回最小值
+    private E removeMin() {
+        E ret = minimum();
+        root = removeMin(root);
+
+        return ret;
+    }
+
+    // 删除掉以node为根的二分搜索树中的最小节点
+    // 返回删除节点后新的二分搜索树的根
+
+    //原理：递归到一个node节点的左子节点(node.left)，该节点的左子节点(node.left.left)为null，说明已经找到最小值了，
+    //将最小值(node.left)的右子节点作为左子节点。
+    //第一种case：结果就是把2删除。
+
+    /////////////////
+    //      5      //
+    //    /   \    //
+    //   3    6    //
+    //  / \    \   //
+    // 2  4     8  //
+    /////////////////
+
+    //第二种case:把3删除，把4作为5的左节点
+
+    /////////////////
+    //      5      //
+    //    /   \    //
+    //   3    6    //
+    //    \    \   //
+    //     4     8  //
+    /////////////////
+    private Node removeMin(Node node) {
+        if (node.left == null) {
+            Node rightNode = node.right;
+            node.right = null;
+            size--;
+            return rightNode;
+        }
+        node.left = removeMin(node.left);
+        return node;
+    }
+
+    // 寻找二分搜索树的最大元素
+    private E maximum() {
+        if (size == 0) {
+            throw new IllegalArgumentException("BST is empty");
+        }
+        return maximum(root).e;
+    }
+
+    // 返回以node为根的二分搜索树的最大值所在的节点
+    private Node maximum(Node node) {
+        if (node.right == null) {
+            return node;
+        }
+        return maximum(node.right);
+    }
+
+    // 从二分搜索树中删除最大值所在节点, 返回最大值
+    private E removeMax() {
+        E ret = maximum(root).e;
+        root = removeMax(root);
+        return ret;
+    }
+
+    private Node removeMax(Node node) {
+        if (node.right == null) {
+            Node leftNode = node.left;
+            node.left = null;
+            size--;
+            return leftNode;
+        }
+        node.right = removeMax(node.right);
+        return node;
+    }
+
+    // 从二分搜索树中删除元素为e的节点
+    private void remove(E e) {
+        root = remove(root, e);
+    }
+
+    private Node remove(Node node, E e) {
+        if (node == null) {
+            return null;
+        }
+
+        //待删除节点小，遍历左子树
+        if (e.compareTo(node.e) < 0) {
+            node.left = remove(node.left, e);
+            return node;
+        } else if (e.compareTo(node.e) > 0) {
+            node.right = remove(node.right, e);
+            return node;
+        } else {//e.compareTo(node.e) == 0
+            //待删除节点的左子树为空的情况
+            if (node.left == null) {
+                Node rightNode = node.right;
+                node.right = null;
+                size--;
+                return rightNode;
+            }
+
+            //待删除节点的右子树为空的情况
+            if (node.right == null) {
+                Node leftNode = node.left;
+                node.left = null;
+                size--;
+                return leftNode;
+            }
+
+            //带删除节点的左右子树都不为空的情况
+            //找到比待删除节点大的最小子节点，即待删除节点的右子节点的最小节点
+            //用这个节点代替待删除节点的位置
+
+            Node successor = minimum(node.right);
+            successor.right = removeMin(node.right);
+            successor.left = node.left;
+            node.left = node.right = null;
+            return successor;
+        }
+    }
 
     @Override
     public String toString() {
@@ -232,25 +391,121 @@ public class BST<E extends Comparable<E>> {
         System.out.println("测试摩尔斯" + uniqueMorseRepresentations(words));
 
         //4.测试前序遍历
-        System.out.println("--------------测试前序遍历------------------" );
+        System.out.println("--------------测试前序遍历------------------");
         bst.preOrder();
 
         //测试非递归方式前序遍历
-        System.out.println("--------------测试非递归方式前序遍历------------------" );
+        System.out.println("--------------测试非递归方式前序遍历------------------");
         bst.preOrderNR();
 
         //测试中序遍历
-        System.out.println("--------------测试中序遍历------------------" );
+        System.out.println("--------------测试中序遍历------------------");
         bst.inOrder();
 
         //测试后序遍历
-        System.out.println("--------------测试后序遍历------------------" );
+        System.out.println("--------------测试后序遍历------------------");
         bst.postOrder();
 
+        //测试层序遍历
+        System.out.println("--------------测试层序遍历------------------");
+        bst.levelOrder();
+
         //5.打印树的深度（根据前序遍历）
-        System.out.println("--------------打印树的深度------------------" );
+        System.out.println("--------------打印树的深度------------------");
         System.out.println(bst.toString());
 
+        //6.Test removeMin
+        BST<Integer> bst1 = new BST<>();
+        Random random = new Random();
+
+        int n = 1000;
+        for (int i = 0; i < n; i++) {
+            bst1.add(random.nextInt(10000));
+        }
+        ArrayList<Integer> nums1 = new ArrayList<>();
+        while (!bst1.isEmpty()) {
+            nums1.add(bst1.removeMin());
+        }
+        System.out.println(nums1);
+        for (int i = 1; i < nums1.size(); i++) {
+            if (nums1.get(i - 1) > nums1.get(i)) {
+                throw new IllegalArgumentException("Error");
+            }
+        }
+        System.out.println("removeMin test  completed");
+
+        //7.Test removeMax
+        bst1 = new BST<>();
+        random = new Random();
+
+        for (int i = 0; i < n; i++) {
+            bst1.add(random.nextInt(10000));
+        }
+        nums1 = new ArrayList<>();
+        while (!bst1.isEmpty()) {
+            nums1.add(bst1.removeMax());
+        }
+        System.out.println(nums1);
+        for (int i = 1; i < nums1.size(); i++) {
+            if (nums1.get(i - 1) < nums1.get(i)) {
+                throw new IllegalArgumentException("Error");
+            }
+        }
+        System.out.println("removeMax test  completed");
+
+        //8.Test remove
+        bst1 = new BST<>();
+        random = new Random();
+        for (int i = 0; i < n; i++) {
+            bst1.add(random.nextInt(n));
+        }
+
+        // 注意, 由于随机生成的数据有重复, 所以bst中的数据数量大概率是小于n的
+
+        // order数组中存放[0...n)的所有元素
+        Integer[] order = new Integer[n];
+        for (int i = 0; i < n; i++) {
+            order[i] = i;
+        }
+        shuffle(order);
+        // 乱序删除[0...n)范围里的所有元素
+        for (int i = 0; i < n; i++) {
+            if (bst1.contains(order[i])) {
+                bst1.remove(order[i]);
+                System.out.println("After remove " + order[i] + ", size = " + bst1.size() );
+            }
+        }
+        // 最终整个二分搜索树应该为空
+        System.out.println(bst1.size());
+
+        HashMap<Object, Object> map = new HashMap<>();
+        HashSet<Object> objects = new HashSet<>();
+
+        String a = "";
+
+
+
+    }
+    private int b =3;
+
+    private void testFinxal(int a) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                System.out.println(a);
+            }
+        }).start();
+    }
+
+    //打乱数组的顺序
+    private static void shuffle(Object[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            int pos = (int)Math.random() * (i + 1);
+            Object temp = arr[i];
+            arr[i] = arr[pos];
+            arr[pos] = temp;
+        }
     }
 
     //https://leetcode.com/problems/unique-morse-code-words/description/

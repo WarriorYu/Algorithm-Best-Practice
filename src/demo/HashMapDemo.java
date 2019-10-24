@@ -15,9 +15,7 @@ public class HashMapDemo {
         map.put("西瓜", 3);
         map.put("菠萝", 4);
 
-        int[] tt = new int[]{};
-        tt[0] = 1;
-        tt[1] = 2;
+
 
 
 
@@ -54,10 +52,6 @@ public class HashMapDemo {
         Object o = new Object();
         o.hashCode();
         Float.isNaN(3);
-        if (1<2)
-            return;
-        else
-            return;
 
     }
 }
