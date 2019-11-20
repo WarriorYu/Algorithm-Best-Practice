@@ -5,7 +5,7 @@ import java.util.TreeMap;
 /**
  * Author   : soldieryu.dev@gmail.com
  * Create   : 2019/11/20
- * Describe :
+ * Describe : Trie树
  */
 public class Trie {
 
