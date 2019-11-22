@@ -22,6 +22,7 @@ public class Main {
         System.out.println(tree.query(0, 2));
         System.out.println(tree.query(2, 5));
         System.out.println(tree.query(0, 5));
+        System.out.println('I'+'T');
 
     }
 }

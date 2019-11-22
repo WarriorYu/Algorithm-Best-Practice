@@ -32,11 +32,20 @@ public class Trie {
         size = 0;
     }
 
-    //获取Trie中的字符串数量
+    /**
+     * 获取Trie中的字符串数量
+     *
+     * @return
+     */
     public int getSize() {
         return size;
     }
 
+    /**
+     * 添加一个字符串
+     *
+     * @param word
+     */
     public void add(String word) {
         Node cur = root;
         for (int i = 0; i < word.length(); i++) {
@@ -53,6 +62,44 @@ public class Trie {
             cur.isWord = true;
             size++;
         }
+    }
+
+    /**
+     * 是否包含指定的字符串
+     *
+     * @param word
+     * @return
+     */
+    public boolean contains(String word) {
+        Node cur = root;
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            if (cur.next.get(c) == null) {
+                return false;
+            }
+            //找到当前节点的下一个节点
+            cur = cur.next.get(c);
+        }
+        //如果Trie里包含panda，搜索pan，会返回true，所以最后使用isWord()判断是否是单词的结尾
+        return cur.isWord;
+    }
+
+    /**
+     * 查询在Trie中是否有单词以prefix为前缀
+     *
+     * @param prefix
+     * @return
+     */
+    public boolean isPrefix(String prefix) {
+        Node cur = root;
+        for (int i = 0; i < prefix.length(); i++) {
+            char c = prefix.charAt(i);
+            if (cur.next.get(c) == null) {
+                return false;
+            }
+            cur = cur.next.get(c);
+        }
+        return true;
     }
 
 }
