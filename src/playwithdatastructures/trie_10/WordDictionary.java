@@ -5,7 +5,7 @@ import java.util.TreeMap;
 /**
  * Author   : soldieryu.dev@gmail.com
  * Create   : 2019/11/22
- * Describe :
+ * Describe : Leetcode 211
  */
 public class WordDictionary {
     private Node root;
@@ -61,7 +61,9 @@ public class WordDictionary {
         char c = word.charAt(index);
         if (c == '.') {
             for (char charKey : cur.next.keySet()) {
-                return match(cur.next.get(charKey), word, index + 1);
+                if (match(cur.next.get(charKey), word, index + 1)) {
+                    return true;
+                }
             }
             return false;
 
@@ -69,9 +71,8 @@ public class WordDictionary {
             //如果是字母
             if (cur.next.get(c) == null) {
                 return false;
-            } else {
-                return match(cur.next.get(c), word, index + 1);
             }
+            return match(cur.next.get(c), word, index + 1);
         }
     }
 }
