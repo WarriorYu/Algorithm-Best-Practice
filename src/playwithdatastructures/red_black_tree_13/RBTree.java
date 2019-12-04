@@ -109,6 +109,20 @@ public class RBTree<K extends Comparable<K>, V> implements Map<K, V> {
         } else {
             node.value = value;
         }
+        //右子树是红色，左子树不是红色，则左旋
+        if (isRed(node.right) && !isRed(node.left)) {
+            node = leftRotate(node);
+        }
+
+        //左子树是红色，左子树的左子树也是红色，则右旋
+        if (isRed(node.left) && isRed(node.left.left)) {
+            node = rightRotate(node);
+        }
+
+        //左、右子树都是红色，则颜色翻转
+        if (isRed(node.left) && isRed(node.right)) {
+            flipColors(node);
+        }
         return node;
     }
 
@@ -235,6 +249,7 @@ public class RBTree<K extends Comparable<K>, V> implements Map<K, V> {
     public static void main(String[] args) {
 
         System.out.println("Pride and Prejudice");
+
 
         ArrayList<String> words = new ArrayList<>();
         if (FileOperation.readFile("pride-and-prejudice.txt", words)) {
