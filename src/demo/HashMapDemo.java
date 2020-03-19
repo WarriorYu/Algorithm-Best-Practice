@@ -16,9 +16,6 @@ public class HashMapDemo {
         map.put("菠萝", 4);
 
 
-
-
-
         Set<Map.Entry<String, Integer>> entrySet = map.entrySet();
         for (Map.Entry<String, Integer> entry : entrySet) {
             String key = entry.getKey();
@@ -31,10 +28,9 @@ public class HashMapDemo {
         Iterator<Map.Entry<String, Integer>> entryIterator = entrySet.iterator();
         while (entryIterator.hasNext()) {
             Map.Entry<String, Integer> entry = entryIterator.next();
-            System.out.println(entry.getKey()+" = "+entry.getValue());
+            System.out.println(entry.getKey() + " = " + entry.getValue());
         }
         System.out.println();
-
 
 
         Set<String> keySet = map.keySet();
@@ -53,5 +49,9 @@ public class HashMapDemo {
         o.hashCode();
         Float.isNaN(3);
 
+        String a = "afgh";
+        System.out.println(a.intern());
+
+        System.out.println(a.charAt(5));
     }
 }

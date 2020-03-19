@@ -14,6 +14,7 @@ public class DemoLogger {
         if (level == 1) {
             System.out.println(builder.buildMessage());
         }
+
     }
 
     public static void main(String[] args) {
@@ -29,12 +30,11 @@ public class DemoLogger {
         String[] array = {msgA, msgB, msgC};
         System.out.println(Arrays.toString(array));
 
-        Arrays.sort(array,(String a,String  b)-> a.length()-b.length());
+        Arrays.sort(array, (String a, String b) -> a.length() - b.length());
         System.out.println(Arrays.toString(array));
 
-
+        System.out.println(msgA.substring(0, msgA.length() - 1));
     }
-
 
 
 }
