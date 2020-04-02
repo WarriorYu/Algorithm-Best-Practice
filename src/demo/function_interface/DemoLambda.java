@@ -1,5 +1,7 @@
 package demo.function_interface;
 
+import designPattern.IdGenerator;
+
 import java.util.ArrayList;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -32,7 +34,6 @@ public class DemoLambda {
         //练习andThen
         String[] array = {"迪丽热巴,女", "古力娜扎,女", "马尔扎哈,男"};
         printInfo(one -> System.out.print("姓名：" + one.split(",")[0]), one -> System.out.println("性别： " + one.split(",")[1]), array);
-
 
     }
 
