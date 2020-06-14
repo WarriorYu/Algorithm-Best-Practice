@@ -1,7 +1,5 @@
 package designPattern;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
-
 import java.util.concurrent.atomic.AtomicLong;
 
 /**

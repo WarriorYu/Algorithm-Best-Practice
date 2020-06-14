@@ -1,8 +1,6 @@
 package demo.function_interface;
 
-import designPattern.IdGenerator;
-
-import java.util.ArrayList;
+import java.util.Stack;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
