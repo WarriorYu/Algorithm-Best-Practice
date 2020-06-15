@@ -11,6 +11,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src/sort/08_queue" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/playwithalgorithm/03/binarysearch_01" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/playwithalgorithm/03/movezeroes_04" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/playwithalgorithm" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/playwithalgorithm/02" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/playwithalgorithm/03" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
