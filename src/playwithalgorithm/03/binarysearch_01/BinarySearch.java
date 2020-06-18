@@ -1,3 +1,5 @@
+package binarysearch_01;
+
 /**
  * Author   : soldieryu.dev@gmail.com
  * Create   : 2019/12/18

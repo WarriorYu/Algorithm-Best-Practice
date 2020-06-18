@@ -1,3 +1,4 @@
+package binarysearch_01;
 
 /**
  * Created by liuyubobobo.

@@ -1,10 +1,7 @@
-import demo.SubClass;
-import demo.SuperClass;
-import demo.function_interface.DemoLambda;
-import leetcode.lc_2.ListNode;
-
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
+//import demo.SubClass;
+//
+//import java.lang.reflect.ParameterizedType;
+//import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -19,14 +16,14 @@ public class Demo {
         String b = "中";
         System.out.println(b.length());
         String longString = "aaaaaaaaaaaaaaaaa";
-        try {
+       /* try {
             ParameterizedType methodType = (ParameterizedType) SubClass.class.getMethod("getValue").getGenericReturnType();
             for (Type type : methodType.getActualTypeArguments()) {
                 System.out.println(type);
             }
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 
