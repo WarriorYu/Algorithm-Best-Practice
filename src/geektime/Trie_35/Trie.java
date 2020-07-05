@@ -1,4 +1,4 @@
-package sort.Trie_35;
+package geektime.Trie_35;
 
 /**
  * Author   : soldieryu.dev@gmail.com

@@ -1,3 +1,5 @@
+package playwithalgorithm.three;
+
 import demo.sort.InsertSort;
 
 public class QuickSort {

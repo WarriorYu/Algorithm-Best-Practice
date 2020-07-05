@@ -1,6 +1,4 @@
-import com.sun.org.apache.bcel.internal.generic.SWAP;
-
-import java.util.Arrays;
+package playwithalgorithm.two;
 
 /**
  * Author   : soldieryu.dev@gmail.com

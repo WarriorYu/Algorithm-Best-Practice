@@ -1,3 +1,8 @@
+package playwithalgorithm.three;
+
+import playwithalgorithm.two.InsertionSort;
+import playwithalgorithm.two.SortTestHelper;
+
 import java.util.Arrays;
 
 /**

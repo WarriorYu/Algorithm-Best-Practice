@@ -1,3 +1,5 @@
+package playwithalgorithm.two;
+
 /**
  * Author   : soldieryu.dev@gmail.com
  * Create   : 2020/6/9
