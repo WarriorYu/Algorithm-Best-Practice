@@ -1,3 +1,5 @@
+package playwithalgorithm.three.movezeroes_04;
+
 /**
  * Author   : soldieryu.dev@gmail.com
  * Create   : 2019/12/18

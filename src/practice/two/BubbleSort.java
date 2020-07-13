@@ -1,16 +1,19 @@
-package practice;
+package practice.two;
+
+import playwithdatastructures.heap_and_priority_queue_08.SortTest;
+import practice.MySortTestHelper;
 
 /**
  * Author   : soldieryu.dev@gmail.com
- * Create   : 2020/7/5
- * Describe : 优化的冒泡排序。
- *            时间复杂度O(n^2)  空间复杂度O(1)   原地、稳定排序
+ * Create   : 2020/7/10
+ * Describe :
  */
 public class BubbleSort {
     private BubbleSort() {
     }
 
     public static void sort(Comparable[] arr) {
+
         int n = arr.length;
         for (int i = 0; i < n; i++) {
             boolean flag = true;
@@ -27,17 +30,17 @@ public class BubbleSort {
         }
     }
 
-    private static void swap(Comparable[] arr, int a, int b) {
+    public static void swap(Comparable[] arr, int a, int b) {
         Comparable temp = arr[a];
         arr[a] = arr[b];
         arr[b] = temp;
     }
 
     public static void main(String[] args) {
-        int n = 20;
-        Integer[] array = MySortTestHelper.generateRandomArray(n, 0, n);
-        MySortTestHelper.printArray(array);
-        MySortTestHelper.testSort("practice.BubbleSort", array);
-        MySortTestHelper.printArray(array);
+        int n=10;
+        Integer[] arr = MySortTestHelper.generateRandomArray(n, 0, n);
+        MySortTestHelper.printArray(arr);
+        sort(arr);
+        MySortTestHelper.printArray(arr);
     }
 }

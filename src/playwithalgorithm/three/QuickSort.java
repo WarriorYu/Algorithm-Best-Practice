@@ -14,16 +14,16 @@ public class QuickSort {
     public static void sort(Comparable[] arr) {
         int n = arr.length;
         sort(arr, 0, n - 1);
-        for (int i = 0; i < n; i++) {
+        /*for (int i = 0; i < n; i++) {
             System.out.println(arr[i]);
-        }
+        }*/
     }
 
     private static void sort(Comparable[] arr, int l, int r) {
         if (l >= r) return;
         // 对于小规模数组, 使用插入排序
-        if (r-l<=15){
-            InsertSort.sort(arr,l,r);
+        if (r - l <= 15) {
+            InsertSort.sort(arr, l, r);
             return;
         }
         int p = partition(arr, l, r);
@@ -33,16 +33,16 @@ public class QuickSort {
 
     private static int partition(Comparable[] arr, int l, int r) {
         // 随机在arr[l...r]的范围中, 选择一个数值作为标定点pivot
-        swap(arr,l, (int) (Math.random()*(r-l+1)+l));
+        swap(arr, l, (int) (Math.random() * (r - l + 1) + l));
         Comparable v = arr[l];
         int j = l;
         for (int i = l + 1; i <= r; i++) {
             if (arr[i].compareTo(v) < 0) {
-                j ++;
+                j++;
                 swap(arr, i, j);
             }
         }
-        swap(arr,l,j);
+        swap(arr, l, j);
         return j;
     }
 

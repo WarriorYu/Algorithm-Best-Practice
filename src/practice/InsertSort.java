@@ -25,12 +25,6 @@ public class InsertSort {
         }
     }
 
-    private static void swap(Comparable[] arr, int a, int b) {
-        Comparable temp = arr[a];
-        arr[a] = arr[b];
-        arr[b] = temp;
-    }
-
     public static void main(String[] args) {
         int n = 20;
 //        Integer[] array = MySortTestHelper.generateRandomArray(n, 0, n);
