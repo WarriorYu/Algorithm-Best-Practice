@@ -1,7 +1,14 @@
 package playwithalgorithm.three;
 
 import demo.sort.InsertSort;
-
+/**
+ * Author   : soldieryu.dev@gmail.com
+ * Create   : 2020/7/26
+ * Describe :  快速排序
+ *
+ * 1.快排是一种原地、不稳定的排序算法
+ * 2.快排的时间复杂度： O(nlogn)  。在极端情况下，才会退化到 O(n^2)
+ */
 public class QuickSort {
     private QuickSort() {
     }

@@ -5,7 +5,7 @@ import playwithalgorithm.two.SortTestHelper;
 /**
  * Author   : soldieryu.dev@gmail.com
  * Create   : 2020/7/26
- * Describe :
+ * Describe : 快速排序
  */
 public class QuickSort {
     private QuickSort() {

@@ -3,7 +3,10 @@ package playwithalgorithm.two;
 /**
  * Author   : soldieryu.dev@gmail.com
  * Create   : 2020/6/9
- * Describe : 选择排序
+ * Describe : 选择排序  时间复杂度O(n^2)  空间复杂度O(1)   原地、不稳定排序。
+ *  *
+ *  * 概念：选择排序每次会从未排序区间中找到最小的元素，将其放到已排序区间的末尾。
+ *  * 不稳定排序：选择排序每次都要找剩余未排序元素中的最小值，并和前面的元素交换位置，这样破坏了稳定性。
  */
 public class SelectionSort {
     //我们的算法类不允许产生任何实例
