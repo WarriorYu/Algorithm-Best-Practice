@@ -2,6 +2,7 @@ package demo.function_interface;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.util.HashSet;
 
 /**
  * Author   : soldieryu.dev@gmail.com
@@ -62,7 +63,6 @@ public class demo2 {
 
             }
         }
-
     }
 
     public static BigDecimal getFixedBigDecimal(String value, int fixed) {
