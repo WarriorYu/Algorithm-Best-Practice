@@ -1,4 +1,4 @@
-package designPattern;
+package designPattern.singleton;
 
 import java.util.concurrent.atomic.AtomicLong;
 

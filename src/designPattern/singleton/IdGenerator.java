@@ -1,4 +1,4 @@
-package designPattern;
+package designPattern.singleton;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -34,30 +34,27 @@ public class IdGenerator {
 //    }
 
     //懒汉式（双重检测）
-//    private static IdGenerator instance;
-//
-//    public static IdGenerator getInstance() {
-//        if (instance == null) {
-//            synchronized (IdGenerator.class) { //这里是类级别的锁
-//                if (instance == null) {
-//                    instance = new IdGenerator();
-//                }
-//            }
-//        }
-//        return instance;
-//    }
-
-    //静态内部类
-    private static class SingleHolder{
-        private static final IdGenerator instance = new IdGenerator();
-    }
+    private static IdGenerator instance;
 
     public static IdGenerator getInstance() {
-        return SingleHolder.instance;
+        if (instance == null) {
+            synchronized (IdGenerator.class) { //这里是类级别的锁
+                if (instance == null) {
+                    instance = new IdGenerator();
+                }
+            }
+        }
+        return instance;
     }
 
-
-
+    //静态内部类
+//    private static class SingleHolder{
+//        private static final IdGenerator instance = new IdGenerator();
+//    }
+//
+//    public static IdGenerator getInstance() {
+//        return SingleHolder.instance;
+//    }
 
     public static void main(String[] args) {
         long id = IdGenerator.getInstance().getId();
