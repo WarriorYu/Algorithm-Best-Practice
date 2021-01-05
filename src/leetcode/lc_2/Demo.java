@@ -1,9 +1,6 @@
 package leetcode.lc_2;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Author   : soldieryu.dev@gmail.com
@@ -18,6 +15,9 @@ public class Demo {
 
         String s = "cbabcb";
         System.out.println(lengthOfLongestSubstring(s));
+        HashMap<String,String> map = new HashMap<>();
+        map.values();
+        new ArrayList<>(map.values());
     }
 
     public static String longestCommonPrefix(String[] strs) {
