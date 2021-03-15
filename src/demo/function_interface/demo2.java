@@ -40,8 +40,6 @@ public class demo2 {
         /*String format = new DecimalFormat("#.##").format(99.89);
         System.out.println(format);*/
 
-        //
-
         float imgRatio = 1.5f;
         String url ="http://img.guanfu.cn/gf-images-1593762554477_2x3.jpg";
 
