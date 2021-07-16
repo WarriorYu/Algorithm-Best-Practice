@@ -1,7 +1,9 @@
 package demo.function_interface;
 
+import java.awt.image.RescaleOp;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
@@ -36,9 +38,18 @@ public class demo2 {
             System.out.println(a.doubleValue());
         }*/
 
-
         /*String format = new DecimalFormat("#.##").format(99.89);
         System.out.println(format);*/
+
+        // 去除末尾多余的0
+        try {
+            BigDecimal result = new BigDecimal("1000.3467");
+         result.setScale(2, BigDecimal.ROUND_HALF_UP);
+            System.out.println(result.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         float imgRatio = 1.5f;
         String url ="http://img.guanfu.cn/gf-images-1593762554477_2x3.jpg";

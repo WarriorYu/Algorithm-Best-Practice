@@ -1,5 +1,9 @@
 package androiddesignpattern.singleton;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Author   : soldieryu.dev@gmail.com
  * Create   : 2021/1/11
@@ -12,5 +16,6 @@ public class SingletonClient {
         Singleton3 instance3 = Singleton3.getInstance();
         Singleton4 instance4 = Singleton4.getInstance();
         Singleton5 instance5 = Singleton5.Instance;
+
     }
 }
