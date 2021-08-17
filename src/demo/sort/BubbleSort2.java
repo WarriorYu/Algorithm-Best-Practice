@@ -1,7 +1,5 @@
 package demo.sort;
 
-import static com.sun.tools.javac.jvm.ByteCodes.swap;
-
 /**
  * Author   : soldieryu.dev@gmail.com
  * Create   : 2020/7/3
