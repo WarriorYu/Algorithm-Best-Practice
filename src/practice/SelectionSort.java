@@ -18,7 +18,7 @@ public class SelectionSort {
             // 寻找[i,n)区间里的最小值
             int min = i;
             for (int j = i + 1; j < n; j++) {
-                if (arr[i].compareTo(arr[j]) > 0) {
+                if (arr[j].compareTo(arr[min]) < 0) {
                     min = j;
                 }
             }
